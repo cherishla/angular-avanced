@@ -38,6 +38,8 @@
 
   * 如果有用disabled，則在form.value裡面會被移除  
       `<input type="text" class="form-control rounded" name="title"                               [(ngModel)]="data.title" #mTitle="ngModel" required [disabled]="mTitle.value==='123'"> ` 
+  * 關掉瀏覽器的驗證，在form 中加上屬性`novalidated`
+    
   ### 實作 - Template-Driven ###
 * Model-Driven Form(模型):表單欄位動態產生時使用,  使用formControlName  
 `import { ReactiveFormsModule } from '@angular/forms';`

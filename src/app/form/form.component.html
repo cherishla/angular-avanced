@@ -31,7 +31,7 @@
               </pre>
             <div class="card">
               <div class="card-body">
-                <form method="get" action="/" class="form-horizontal" #f="ngForm" (ngSubmit)="doSubmit(f)">
+                <form method="get" action="/" class="form-horizontal" #f="ngForm" (ngSubmit)="doSubmit(f)" novalidated>
                   <input type="submit" value="送出" name="" />
 
                   <fieldset>
@@ -53,11 +53,12 @@
                       </div>
                     </div>
                   </fieldset>
+                  <div ngModelGroup="profile">
                   <fieldset>
                     <div class="form-group">
                       <label for="input-id-1" class="col-sm-2 control-label">Label focus</label>
                       <div class="col-sm-10">
-                        <input id="input-id-1" type="text" class="form-control">
+                        <input id="input-id-1" type="text" class="form-control" [(ngModel)]="data.type1" name="type1">
                       </div>
                     </div>
                   </fieldset>
@@ -65,10 +66,11 @@
                     <div class="form-group">
                       <label class="col-sm-2 control-label">Password</label>
                       <div class="col-sm-10">
-                        <input type="password" name="password" class="form-control">
+                        <input type="password" name="password" class="form-control"  [(ngModel)]="data.type2" name="type2">
                       </div>
                     </div>
                   </fieldset>
+                  </div>
                   <fieldset>
                     <div class="form-group">
                       <label class="col-sm-2 control-label">Placeholder</label>
