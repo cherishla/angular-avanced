@@ -15,15 +15,31 @@
                 } | json
               }}
             </pre>
+            <pre>
+              {{f.value | json}}
+            </pre>
+            <pre>
+              {{
+                {
+                  value:f.value,
+                  error:f.errors,
+                  valid:f.valid,
+                  dirty: f.dirty,
+                  touched: f.touched
+                } | json
+              }}
+              </pre>
             <div class="card">
               <div class="card-body">
-                <form method="get" action="/" class="form-horizontal">
+                <form method="get" action="/" class="form-horizontal" #f="ngForm" (ngSubmit)="doSubmit(f)">
+                  <input type="submit" value="送出" name="" />
+
                   <fieldset>
                     <div class="form-group" [class.has-error]="mTitle.errors?.required">
                       <label class="col-sm-2 control-label">Rounded Corners</label>
                       <div class="col-sm-10">
                         <input type="text" class="form-control rounded" name="title"
-                        [(ngModel)]="data.title" #mTitle="ngModel" required>
+                        [(ngModel)]="data.title" #mTitle="ngModel" required [disabled]="mTitle.value==='123'">
                       </div>
                     </div>
                   </fieldset>
@@ -31,7 +47,9 @@
                     <div class="form-group">
                       <label class="col-sm-2 control-label">With help</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control"><span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+                        <input type="text" class="form-control" [(ngModel)]='data.subtitle'
+                         name="subtitle" #mSubtitle="ngModel">
+                        <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
                       </div>
                     </div>
                   </fieldset>

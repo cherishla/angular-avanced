@@ -26,15 +26,19 @@
         canActivate:[NeedLoginGuard]
       }     
 
-# 表單
+# 表單 #
 * Template-Driven Form(範本):表單欄位固定時使用，  使用ngModel  
 `import { FormsModule } from '@angular/forms';`
   * ngModel 主要用來建立一個**表單控制項**實體
   * 如果放在`<form>`裡面，則一定要有`name`的屬性
-          <input type="text" class="form-control rounded" name="title"
-      [(ngModel)]="data.title" #mTitle="ngModel" required>    
-  * #mTitle 主要抓到欄位資訊。EX: value、errors、valid、dirty、touched  
-  ### 實作 - Template-Driven
+  * #mTitle 主要抓到欄位資訊。EX: value、errors、valid、dirty、touched
+  `<input type="text" class="form-control rounded" name="title" [(ngModel)]="data.title" #mTitle="ngModel" required>`   
+  * 可以用下列程式碼抓到form
+  `<form method="get" action="/" class="form-horizontal" #f="ngForm" (ngSubmit)="doSubmit(f)">`
+
+  * 如果有用disabled，則在form.value裡面會被移除  
+      `<input type="text" class="form-control rounded" name="title"                               [(ngModel)]="data.title" #mTitle="ngModel" required [disabled]="mTitle.value==='123'"> ` 
+  ### 實作 - Template-Driven ###
 * Model-Driven Form(模型):表單欄位動態產生時使用,  使用formControlName  
 `import { ReactiveFormsModule } from '@angular/forms';`
 
