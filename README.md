@@ -27,7 +27,7 @@
             loadChildren:'./charts/charts.module#ChartsModule',
             canActivate:[NeedLoginGuard]
         }  
-        
+ ```       
 # 表單 #
 * **Template-Driven Form(範本)**:表單欄位固定時使用，  使用ngModel  
     ```javascript 
