@@ -41,6 +41,7 @@
   * 關掉瀏覽器的驗證，在form 中加上屬性`novalidated`
     
   ### 實作 - Template-Driven ###
+
 * Model-Driven Form(模型):表單欄位動態產生時使用,  使用formControlName  
-`import { ReactiveFormsModule } from '@angular/forms';`
+    import { ReactiveFormsModule } from '@angular/forms';
 

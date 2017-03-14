@@ -14,6 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardsComponent } from './cards/cards.component';
 import { LayoutComponent } from './layout/layout.component';
 import { FormComponent } from './form/form.component';
+import { Form2Component } from './form2/form2.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormComponent } from './form/form.component';
     DashboardComponent,
     CardsComponent,
     LayoutComponent,
-    FormComponent
+    FormComponent,
+    Form2Component
 
   ],
   imports: [
