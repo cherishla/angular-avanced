@@ -4,10 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path:'chart', children:[
+
     { path: '', redirectTo: 'flot', pathMatch: 'full' },
     { path: 'flot', component: FlotComponent }
-  ]}
+
 ];
 
 @NgModule({
