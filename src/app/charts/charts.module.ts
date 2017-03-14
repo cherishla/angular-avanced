@@ -7,7 +7,7 @@ import { ChartsRoutingModule } from './charts-routing.module';
 @NgModule({
   imports: [
     CommonModule,
-    ChartsRoutingModule
+   // ChartsRoutingModule
   ],
   declarations: [FlotComponent]
 })

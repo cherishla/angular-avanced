@@ -24,8 +24,11 @@ const routes: Routes = [
       { path: 'cards/:num', component: CardsComponent },
       { path: 'page1', component: Page1Component },
       { path: 'page2', component: Page2Component },
-      { path: 'charts',
-         loadChildren: './charts/charts.module#ChartsModule',
+      { path: 'charts', children:[
+        {
+          path:'flot', component:FlotComponent
+        }
+      ]
       },
     ]},
     { path:'login', component:LoginComponent},
