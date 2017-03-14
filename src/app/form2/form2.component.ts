@@ -1,3 +1,4 @@
+import { myNameValidator } from './validators/myname.validator';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -15,7 +16,7 @@ export class Form2Component implements OnInit {
   ngOnInit() {
     this.form = this.fb.group(
       {
-        'title': ['p1',[Validators.required, Validators.maxLength(10)]],
+        'title': ['p1',[Validators.required, Validators.maxLength(10), myNameValidator]],
         'subtitle': ['p2', Validators.required],
         'types':this.fb.array(
           this.types.map(item=>{

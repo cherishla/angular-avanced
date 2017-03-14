@@ -35,7 +35,9 @@
                   <fieldset>
                     <div class="form-group">
                       <label class="col-sm-2 control-label">Rounded Corners</label>
-                      <div class="col-sm-10" [class.has-error]="form.controls.title.errors?.required ||  form.controls.title.errors?.maxlength">
+                      <div class="col-sm-10" [class.has-error]="form.controls.title.errors?.required ||
+                                                                form.controls.title.errors?.maxlength ||
+                                                                form.controls.title.errors?.myName">
                         <input type="text" class="form-control rounded" formControlName="title" />
 
                       </div>
