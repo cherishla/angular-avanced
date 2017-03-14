@@ -19,7 +19,7 @@ export class Form2Component implements OnInit {
         'subtitle': ['p2', Validators.required],
         'types':this.fb.array(
           this.types.map(item=>{
-            this.fb.control(item , Validators.required)
+            return this.fb.control(item , Validators.required)
           })
         )
       }
