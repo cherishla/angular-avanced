@@ -3,7 +3,7 @@ import { LoginModule } from './login/login.module';
 import { ChartsModule } from './charts/charts.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,7 @@ import { Page2Component } from './page2/page2.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardsComponent } from './cards/cards.component';
 import { LayoutComponent } from './layout/layout.component';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +22,16 @@ import { LayoutComponent } from './layout/layout.component';
     Page2Component,
     DashboardComponent,
     CardsComponent,
-    LayoutComponent
+    LayoutComponent,
+    FormComponent
 
   ],
   imports: [
     BrowserModule,
+    //只支援template form
     FormsModule,
+    //動態表單
+    ReactiveFormsModule,
     HttpModule,
     //有順序問題，所以chartsModule要先放在上面
     //ChartsModule,
