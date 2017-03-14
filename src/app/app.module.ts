@@ -28,7 +28,7 @@ import { LayoutComponent } from './layout/layout.component';
     FormsModule,
     HttpModule,
     //有順序問題，所以chartsModule要先放在上面
-    ChartsModule,
+    //ChartsModule,
     LoginModule,
     AppRoutingModule,
 
