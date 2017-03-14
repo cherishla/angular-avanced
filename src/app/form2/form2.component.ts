@@ -9,13 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class Form2Component implements OnInit {
 
   form: any;
+  types=[1,2,3,4,5];
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
     this.form = this.fb.group(
       {
         'title': ['p1',[Validators.required, Validators.maxLength(10)]],
-        'subtitle': ['p2', Validators.required]
+        'subtitle': ['p2', Validators.required],
+        'types':this.fb.array(
+          this.types.map(item=>{
+            this.fb.control(item , Validators.required)
+          })
+        )
       }
     );
   }

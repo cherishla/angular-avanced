@@ -61,14 +61,16 @@
                     </div>
                   </fieldset>
                   </div>
-                  <fieldset>
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label">Placeholder</label>
+                  <div formGroupName="types">
+                  <fieldset *ngFor="let type of types; let i=index;">
+                    <div class="form-group" [class.has-error]="form.controls.types.controls[i].errors?.required">
+                      <label class="col-sm-2 control-label">type[{{i}}]</label>
                       <div class="col-sm-10">
-                        <input type="text" placeholder="placeholder" class="form-control">
+                        <input type="text" placeholder="placeholder" class="form-control" [formControlName]="i" required>
                       </div>
                     </div>
                   </fieldset>
+                  </div>
                   <fieldset>
                     <div class="form-group">
                       <label class="col-lg-2 control-label">Disabled</label>
