@@ -19,16 +19,20 @@
 #### 題目: 將charts/flot加上權限:  當query params 有apikey=='123'時才能進入，反之則導回登入頁
 
 1. `ng g guard need-login`
-2. 加至provider
-3. 路由加上canActivate
-      { path: 'charts',
-        loadChildren:'./charts/charts.module#ChartsModule',
-        canActivate:[NeedLoginGuard]
-      }     
-
+2. 加至 `provider`
+3. 路由加上`canActivate`
+    ```sh 
+        { 
+            path: 'charts',
+            loadChildren:'./charts/charts.module#ChartsModule',
+            canActivate:[NeedLoginGuard]
+        }  
+        
 # 表單 #
-* Template-Driven Form(範本):表單欄位固定時使用，  使用ngModel  
-`import { FormsModule } from '@angular/forms';`
+* **Template-Driven Form(範本)**:表單欄位固定時使用，  使用ngModel  
+    ```sh 
+        import { FormsModule } from '@angular/forms';
+    ```
   * ngModel 主要用來建立一個**表單控制項**實體
   * 如果放在`<form>`裡面，則一定要有`name`的屬性
   * #mTitle 主要抓到欄位資訊。EX: value、errors、valid、dirty、touched
@@ -44,4 +48,8 @@
 
 * Model-Driven Form(模型):表單欄位動態產生時使用,  使用formControlName  
     import { ReactiveFormsModule } from '@angular/forms';
+    
+* 如果要使用動態驗證的話，要先找到control並replace掉
+* FormBuilder.group 
 
+* **FormBuilder.array**:用於動態表單    
