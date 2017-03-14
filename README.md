@@ -11,10 +11,14 @@
 
 ##路由守門員:
 1. 目的: 權限控管
-2. 已路由為單位，但是因為是屬於client 端，所以會有風險，還是要從server端控管。
+2. 已路由為單位，但是因為是屬於client 端，所以會有風險，  所以權限部分還是要從server端控管。
 ###實作
 ####題目: 將charts/flot加上權限:  當query params 有apikey=='123'時才能進入，反之則導回登入頁
 
-1. `ng g guard need-login`
-2. 加至provider
-3. 路由加上canActivate
+######1. `ng g guard need-login`
+######2. 加至provider
+######3. 路由加上canActivate
+            { path: 'charts',
+        loadChildren:'./charts/charts.module#ChartsModule',
+        canActivate:[NeedLoginGuard]
+      }     
