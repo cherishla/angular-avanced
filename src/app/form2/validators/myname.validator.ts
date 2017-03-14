@@ -1,4 +1,4 @@
-import { AbstractControl } from '@angular/forms';
+import { AbstractControl, ValidatorFn } from '@angular/forms';
 
 export function myNameValidator(control: AbstractControl) {
   if (control.value.indexOf('Lala') == 0) {
@@ -7,4 +7,12 @@ export function myNameValidator(control: AbstractControl) {
     }
   }
   return null;
+}
+
+export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
+  return(control: AbstractControl):{[key: string]:any}=>{
+    const name = control.value;
+    const no = nameRe.test(name);
+    return no ? {'forbiddenName': true}: null;
+  }
 }
