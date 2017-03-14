@@ -21,7 +21,7 @@
 1. `ng g guard need-login`
 2. 加至 `provider`
 3. 路由加上`canActivate`
-    ```sh 
+    ```typescript 
         { 
             path: 'charts',
             loadChildren:'./charts/charts.module#ChartsModule',
@@ -30,7 +30,7 @@
         
 # 表單 #
 * **Template-Driven Form(範本)**:表單欄位固定時使用，  使用ngModel  
-    ```sh 
+    ```typescript 
         import { FormsModule } from '@angular/forms';
     ```
   * ngModel 主要用來建立一個**表單控制項**實體
