@@ -1,0 +1,30 @@
+<p class="title">{{title}}</p>
+<div class="button-type">
+<input type="button" value="Month" (click)="changeType('month')" [disabled]= "calendarType==='month'" />
+<input type="button" value="Week" (click)="changeType('week')"  [disabled]="calendarType==='week'"/>
+</div>
+<table style="width:100%; text-align: center; border: 1px solid black;table-layout:fixed">
+  <thead>
+    <tr>
+      <th style="border: 1px solid black; text-align: center" *ngFor="let item of ['S','M','T','W','T','F','S']">{{item}}</th>
+    </tr>
+  </thead>
+</table>
+
+<div [ngSwitch]="calendarType">
+  <div *ngSwitchCase="'week'">
+    <ng-content select="app-week" ></ng-content>
+  </div>
+  <div *ngSwitchCase="'month'">
+    <ng-content select="app-month"></ng-content>
+  </div>
+</div>
+<div>
+  <p *ngIf="!selectItem?.events">Nothing</p>
+  <p *ngIf="selectItem?.events">event:</p>
+
+</div>
+<div *ngFor="let item of selectItem?.events">
+  <app-calendar-item [data]="item" showTime="true"> </app-calendar-item>
+</div>
+<hr />

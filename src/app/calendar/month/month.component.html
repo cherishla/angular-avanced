@@ -1,0 +1,15 @@
+<table style="width:100%;table-layout:fixed">
+  <tbody>
+    <tr *ngFor="let rowIndex of IMonthView.rowOffsets">
+      <td *ngFor="let col of [0,1,2,3,4,5,6]" (click)="selectDate(IMonthView.days[rowIndex + col])"
+          style="border: 1px solid black;">
+          <app-calendar-cell
+          [dayView]="IMonthView.days[rowIndex + col]">
+            <div style="text-align: center; margin-top:3px; margin-bottom: 3px">
+              <div style="width:6px;height:6px; border-radius:99em; background-color:red; margin: 0 auto;"  *ngIf="IMonthView.days[rowIndex + col].events.length > 0"></div>
+            </div>
+          </app-calendar-cell>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,20 @@
+.title{
+  color: #1976D2;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.button-type{
+  text-align: right;
+}
+.button-type input{
+  background-color: #1976D2;
+  border:none;
+  color:white;
+}
+.button-type input:disabled{
+  color:white;
+  opacity: 0.3;
+}

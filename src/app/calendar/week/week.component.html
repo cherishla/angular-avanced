@@ -1,0 +1,16 @@
+<table style="width:100%;table-layout:fixed">
+  <tbody>
+    <tr>
+      <td *ngFor="let item of IWeekView.days" style="border: 1px solid black;" (click)="selectDate(item)">
+        <app-calendar-cell [dayView]="item">
+          <div *ngFor="let e of item.events">
+            <app-calendar-item [data]="e">
+
+            </app-calendar-item>
+          </div>
+        </app-calendar-cell>
+
+      </td>
+    </tr>
+  </tbody>
+</table>

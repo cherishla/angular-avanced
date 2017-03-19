@@ -1,0 +1,7 @@
+<div style="min-height: 30px">
+<p style="text-align: center;margin: 0 auto"
+[ngClass]="{'today': dayView.isToday, 'select':dayView.isSelect, 'not-month':!dayView.inMonth}">
+{{dayView.date | date:'dd'}}
+</p>
+<ng-content></ng-content>
+</div>

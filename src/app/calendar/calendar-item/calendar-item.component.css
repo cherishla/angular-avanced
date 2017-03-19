@@ -1,0 +1,12 @@
+.event{
+   background-color: cadetblue;
+   width:3px;
+   margin:3px;
+   opacity: 0.3;
+   min-height: 50px;
+
+}
+.event-allDay{
+  opacity: 1.0;
+}
+

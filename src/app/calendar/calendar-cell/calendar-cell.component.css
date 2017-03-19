@@ -1,0 +1,14 @@
+.today{
+  color: #1976D2;
+  font-weight: bold;
+}
+.select{
+    width: 20px;
+    height: 20px;
+    -webkit-border-radius: 99em;
+    border: 1px solid #1976D2;
+}
+
+.not-month{
+  opacity: 0.3;
+}

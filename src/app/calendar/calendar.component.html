@@ -1,0 +1,4 @@
+<app-header [selectItem]="dayView" [title]="title" (typeChange)="typeChange($event)">
+    <app-month [eventSource]="events" (click)="monthClick()"></app-month>
+    <app-week [eventSource]="events" (click)="weekClick()"></app-week>
+</app-header>
