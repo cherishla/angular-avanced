@@ -36,12 +36,18 @@
   * ngModel 主要用來建立一個**表單控制項**實體
   * 如果放在`<form>`裡面，則一定要有`name`的屬性
   * #mTitle 主要抓到欄位資訊。EX: value、errors、valid、dirty、touched
-  `<input type="text" class="form-control rounded" name="title" [(ngModel)]="data.title" #mTitle="ngModel" required>`   
+    ```javascript
+    <input type="text" class="form-control rounded" name="title" [(ngModel)]="data.title" #mTitle="ngModel" required>
+    ```
   * 可以用下列程式碼抓到form
-  `<form method="get" action="/" class="form-horizontal" #f="ngForm" (ngSubmit)="doSubmit(f)">`
-
+    ```javascript
+    <form method="get" action="/" class="form-horizontal" #f="ngForm" (ngSubmit)="doSubmit(f)">`
+    ```
   * 如果有用disabled，則在form.value裡面會被移除  
-      `<input type="text" class="form-control rounded" name="title"                               [(ngModel)]="data.title" #mTitle="ngModel" required [disabled]="mTitle.value==='123'"> ` 
+    ```javascript
+    <input type="text" class="form-control rounded" name="title"
+        [(ngModel)]="data.title" #mTitle="ngModel" required [disabled]="mTitle.value==='123'">
+    ```
   * 關掉瀏覽器的驗證，在form 中加上屬性`novalidated`
     
   ### 實作 - Template-Driven ###
@@ -59,17 +65,43 @@
 * `@HostBinding('style.color')`: 類似input
 * `@HostListener('click',['$event']`： component 所有事件使用，參數要丟字串
 *  建議不要使用下方寫法，要使用 **Renderer**
-```javascript
-constructor(private el: ElementRef, private renderer:Renderer) { }
+  ```javascript
+  constructor(private el: ElementRef, private renderer:Renderer) { }
 
     ngOnInit(){
       this.el.nativeElement.innerHTML="123";
     }
-```
+  ```
+* Renderer: 主要是用來呈現畫面使用，主要有createElement、 Add Attribute
+
+# View Encapsulation Type #
+* 元件內封裝樣式
+* 使用方式，在componentr加入**encapsulation**:
+  ```javascript
+  @Component({
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css'],
+  encapsulation:ViewEncapsulation.Native
+  })
+  ```
+* **encapsulation:ViewEncapsulation.None** :
+  * 完全不使用 Shadow DOM 技術 
+  * 所有從元件註冊的樣式都會加入到整份網頁
+* **encapsulation:ViewEncapsulation.Emulated** :
+  * 預設值
+  * 不使用 Shadow DOM 技術
+  * 元件註冊的樣式只會套用到目前元件中的範本 HTML 中
+* **encapsulation:ViewEncapsulation.Native** :
+  * 使用原生的 Shadow DOM 技術 
+  * 元件會以 Shadow DOM 技術將元素網頁封裝 Web 元件
 # Other #
 * `console.dir` : 列出該元件所有屬性
 * `console.table`: 將陣列裡面的object已table方式顯示 
 * main.ts 動態編譯:
-```javascript
+  ```javascript
   import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-```
+  ```
+* https://github.com/rangle/angular-2-aot-sandbox
+  * Aot : 預先編譯
+  * JIT : 及時編譯

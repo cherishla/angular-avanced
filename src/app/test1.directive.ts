@@ -19,7 +19,6 @@ export class Test1Directive implements OnInit {
       //取代element 的內容，但不建議使用，需透過Renderer來實作
       //this.el.nativeElement.innerHTML="123";
 
-
     }
 
 }
