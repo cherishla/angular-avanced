@@ -116,7 +116,7 @@
   * 所有的DOM事件、Timers(setTimeout)、XMLHttpRequest  都是**非同步操作**
     每當非同步操作完成，應用程式狀態就**有可能**會改變
   *  錯誤寫法: 
-     ```javascript
+     ```sh
       html:
       {{setDay()}}
       ts:
