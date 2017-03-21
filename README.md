@@ -27,7 +27,7 @@
             loadChildren:'./charts/charts.module#ChartsModule',
             canActivate:[NeedLoginGuard]
         }  
- ```       
+   
 # 表單 #
 * **Template-Driven Form(範本)**:表單欄位固定時使用，  使用ngModel  
     ```javascript 
@@ -53,3 +53,8 @@
 * FormBuilder.group 
 
 * **FormBuilder.array**:用於動態表單    
+
+
+# Directive #
+* `@HostBinding('style.color')`: 類似input
+* `@HostListener('click',['$event']`： component 所有事件使用，參數要丟字串

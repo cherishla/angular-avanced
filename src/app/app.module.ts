@@ -24,6 +24,7 @@ import { WeekComponent } from './calendar/week/week.component';
 import { HeaderComponent } from './calendar/header/header.component';
 import { CalendarCellComponent } from './calendar/calendar-cell/calendar-cell.component';
 import { CalendarItemComponent } from './calendar/calendar-item/calendar-item.component';
+import { Test1Directive } from './test1.directive';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { CalendarItemComponent } from './calendar/calendar-item/calendar-item.co
     WeekComponent,
     HeaderComponent,
     CalendarCellComponent,
-    CalendarItemComponent
+    CalendarItemComponent,
+    Test1Directive
 
   ],
   imports: [
