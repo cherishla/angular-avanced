@@ -35,7 +35,7 @@ const routes: Routes = [
       { path: 'page2', component: Page2Component },
       { path: 'charts',
         loadChildren:'./charts/charts.module#ChartsModule',
-        canActivate:[NeedLoginGuard]
+        //canActivate:[NeedLoginGuard]
       }
       ]
    },

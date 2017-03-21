@@ -6,7 +6,7 @@ import { initDashboard } from './init';
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
-  encapsulation:ViewEncapsulation.Native
+  encapsulation:ViewEncapsulation.None
 })
 export class DashboardComponent implements OnInit {
 

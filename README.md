@@ -95,6 +95,46 @@
 * **encapsulation:ViewEncapsulation.Native** :
   * 使用原生的 Shadow DOM 技術 
   * 元件會以 Shadow DOM 技術將元素網頁封裝 Web 元件
+
+# 效能調教 #
+* 減少偵測變數變動次數
+  * 使用不可變的物件(Immutable)
+    ``` javascript
+      var a={name:'Lala', age:25};  
+      var b=[];
+      b = [...b, Object.assign({},a)];    
+    ```
+  * 使用第三方提供的函式庫 **Immutable.js**
+    1. https://facebook.github.io/immutable-js/
+    2. F12 console window
+        ```javascript
+        var map1=Immutable.Map({a:1, b:2});
+        var map2=map1.set('a',2);
+        map1.get('a');
+        map2.get('a');
+        ```
+  * 所有的DOM事件、Timers(setTimeout)、XMLHttpRequest  都是**非同步操作**
+    每當非同步操作完成，應用程式狀態就**有可能**會改變
+  *  錯誤寫法: 
+     ```javascript
+      html:
+      {{setDay()}}
+      ts:
+      setDay(){
+        ...
+      }
+      ```
+      + 因為會在setDay多包一層Zones， 如果畫面有很多DOM，就有可能會不停觸發
+      + 注入Zones來解決
+        ```javascript
+        constructor(private _ngZone:NgZone) { }
+
+        ngOnInit() {
+            this._ngZone.runOutsideAngular(()=>{
+            $(FlotCharts);
+          });
+        }
+        ```
 # Other #
 * `console.dir` : 列出該元件所有屬性
 * `console.table`: 將陣列裡面的object已table方式顯示 

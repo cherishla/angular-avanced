@@ -1,5 +1,5 @@
 import { FlotCharts } from '../../dashboard/init';
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-flot',
@@ -8,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlotComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _ngZone:NgZone) { }
 
   ngOnInit() {
-    $(FlotCharts);
+    this._ngZone.runOutsideAngular(()=>{
+      $(FlotCharts);
+    });
   }
-
+  setDay(){
+    console.log(new Date());
+    return 1;
+  }
 }
