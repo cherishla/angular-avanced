@@ -116,7 +116,7 @@
   * 所有的DOM事件、Timers(setTimeout)、XMLHttpRequest  都是**非同步操作**
     每當非同步操作完成，應用程式狀態就**有可能**會改變
   *  錯誤寫法: 
-     ```sh
+     ```javascript
       html:
       {{setDay()}}
       ts:
@@ -130,11 +130,45 @@
         constructor(private _ngZone:NgZone) { }
 
         ngOnInit() {
-            this._ngZone.runOutsideAngular(()=>{
+          this._ngZone.runOutsideAngular(()=>{
             $(FlotCharts);
           });
         }
         ```
+* 變更偵測: ChangeDetectionStrategy
+  * 使用方式:
+  ```sh
+  @Component({
+  selector: 'app-flot',
+  templateUrl: './flot.component.html',
+  styleUrls: ['./flot.component.css'],
+  changeDetection:ChangeDetectionStrategy.OnPush
+  })
+  ```
+  * **ChangeDetectionStrategy.Default**:
+    + 預設
+    + **變更偵測所費時間 = C*N** 
+      C:檢查binding時間
+      N:總共binding數量
+
+  * **ChangeDetectionStrategy.OnPush**: 
+    + 只要有資料input，才會觸發view 更新
+    + 元件內觸發一個事件
+    + Observable 內觸發一個事件     
+    + **變更偵測所費時間 = C*M**
+      C:檢查binding的時間 
+      M:總共變更的bindinngs數量(M ≦ N)
+    
+* 使用**ChangeDetectorRef**
+  ```sh
+  constructor(private _ngZone:NgZone, private cd:ChangeDetectorRef) { }
+  temp=1;
+  ngOnInit() {
+    Observable.interval(1000).subscribe((id)=>{
+      this.cd.markForCheck();
+      this.temp++;
+    });
+  ```
 # Other #
 * `console.dir` : 列出該元件所有屬性
 * `console.table`: 將陣列裡面的object已table方式顯示 
