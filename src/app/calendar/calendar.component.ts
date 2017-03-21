@@ -34,7 +34,7 @@ export class CalendarComponent implements OnInit {
     this.type = type;
     this.getTitle();
   }
-  getTitle() {
+  private getTitle() {
     if (this.type ==="month") {
       this.title = new Date().getMonth() + 1 + "月";
     } else {

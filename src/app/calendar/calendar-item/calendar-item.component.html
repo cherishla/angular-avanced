@@ -2,7 +2,7 @@
   <table>
     <tr>
       <td>
-        <div  class="event" [ngClass]="{'event-allDay':allDay}"></div>
+        <div  class="event" [class.event-allDay]="data.allDay"></div>
       </td>
       <td>
         <p>{{data.title}}</p>

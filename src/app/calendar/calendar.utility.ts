@@ -10,6 +10,9 @@ export interface IMonthViewDay{
    date: Date;
    isToday:boolean;
    isSelect:boolean;
+   /**
+    * Is within Month
+    */
    inMonth: boolean;
    events:IEvent[];
 }
