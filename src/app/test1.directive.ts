@@ -1,9 +1,9 @@
-import { Directive, HostBinding, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostBinding, HostListener, Renderer, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[appTest1]'
 })
-export class Test1Directive {
+export class Test1Directive implements OnInit {
 
   @HostBinding('style.color')
   textColor:string='red';
@@ -13,6 +13,13 @@ export class Test1Directive {
     this.textColor='darkgreen';
     console.log($event);
   }
-  constructor() { }
+  constructor(private el: ElementRef, private renderer:Renderer) { }
+
+    ngOnInit(){
+      //取代element 的內容，但不建議使用，需透過Renderer來實作
+      //this.el.nativeElement.innerHTML="123";
+
+
+    }
 
 }

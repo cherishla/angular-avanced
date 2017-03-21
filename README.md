@@ -58,3 +58,18 @@
 # Directive #
 * `@HostBinding('style.color')`: 類似input
 * `@HostListener('click',['$event']`： component 所有事件使用，參數要丟字串
+*  建議不要使用下方寫法，要使用 **Renderer**
+```javascript
+constructor(private el: ElementRef, private renderer:Renderer) { }
+
+    ngOnInit(){
+      this.el.nativeElement.innerHTML="123";
+    }
+```
+# Other #
+* `console.dir` : 列出該元件所有屬性
+* `console.table`: 將陣列裡面的object已table方式顯示 
+* main.ts 動態編譯:
+```javascript
+  import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+```
