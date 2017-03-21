@@ -46,15 +46,17 @@
   * 如果有用disabled，則在form.value裡面會被移除  
     ```javascript
     <input type="text" class="form-control rounded" name="title"
-        [(ngModel)]="data.title" #mTitle="ngModel" required [disabled]="mTitle.value==='123'">
+      [(ngModel)]="data.title" #mTitle="ngModel" 
+      required [disabled]="mTitle.value==='123'">
     ```
   * 關掉瀏覽器的驗證，在form 中加上屬性`novalidated`
     
   ### 實作 - Template-Driven ###
 
 * Model-Driven Form(模型):表單欄位動態產生時使用,  使用formControlName  
+    ```sh
     import { ReactiveFormsModule } from '@angular/forms';
-    
+    ```
 * 如果要使用動態驗證的話，要先找到control並replace掉
 * FormBuilder.group 
 
@@ -65,13 +67,13 @@
 * `@HostBinding('style.color')`: 類似input
 * `@HostListener('click',['$event']`： component 所有事件使用，參數要丟字串
 *  建議不要使用下方寫法，要使用 **Renderer**
-  ```javascript
-  constructor(private el: ElementRef, private renderer:Renderer) { }
+    ```javascript
+    constructor(private el: ElementRef, private renderer:Renderer) { }
 
     ngOnInit(){
       this.el.nativeElement.innerHTML="123";
     }
-  ```
+    ```
 * Renderer: 主要是用來呈現畫面使用，主要有createElement、 Add Attribute
 
 # View Encapsulation Type #
@@ -135,16 +137,16 @@
           });
         }
         ```
-* 變更偵測: ChangeDetectionStrategy
+* 變更偵測: **ChangeDetectionStrategy**
   * 使用方式:
-  ```sh
-  @Component({
-  selector: 'app-flot',
-  templateUrl: './flot.component.html',
-  styleUrls: ['./flot.component.css'],
-  changeDetection:ChangeDetectionStrategy.OnPush
-  })
-  ```
+    ```sh
+    @Component({
+    selector: 'app-flot',
+    templateUrl: './flot.component.html',
+    styleUrls: ['./flot.component.css'],
+    changeDetection:ChangeDetectionStrategy.OnPush
+    })
+    ```
   * **ChangeDetectionStrategy.Default**:
     + 預設
     + **變更偵測所費時間 = C*N** 
